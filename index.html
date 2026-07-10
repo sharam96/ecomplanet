@@ -2282,12 +2282,12 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
 </div>
 <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#products">Products</a><a href="#reviews">Reviews</a></div>
 <div><h4>Categories</h4><a href="#categories">Smartphones</a><a href="#categories">Laptops</a><a href="#categories">Smart TVs</a></div>
-<div><h4>Support</h4><a href="#contact">Contact Us</a><a href="https://wa.me/918375907897?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">WhatsApp</a></div>
+<div><h4>Support</h4><a href="#contact">Contact Us</a><a href="https://wa.me/919326246761?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">WhatsApp</a><a href="#">Privacy Policy</a></div>
 </div>
 <div class="copyright">© 2026 EcomPlanet. All rights reserved.</div>
 </div>
 </footer>
-<a aria-label="Chat on WhatsApp" class="float-wa" href="https://wa.me/918375907897?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">
+<a aria-label="Chat on WhatsApp" class="float-wa" href="https://wa.me/919326246761?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
 <script>
@@ -2340,34 +2340,11 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
     status.style.color='#0a9f45';
 
     window.open(
-      'https://wa.me/918375907897?text=' + encodeURIComponent(text),
+      'https://wa.me/919326246761?text=' + encodeURIComponent(text),
       '_blank',
       'noopener,noreferrer'
     );
   });
-</script>
-<script>
-
-const whatsappNumbers=['919326246761','918375907897'];
-document.querySelectorAll('.cart-btn').forEach((button,index)=>{
-  button.onclick=(e)=>{
-    e.preventDefault();
-    const card=button.closest('.product-card');
-    const name=button.dataset.product||card.querySelector('h4').innerText.trim();
-    const price=(card.querySelector('.new-price')?.innerText||'').trim();
-    const number=whatsappNumbers[index%2];
-    const msg=`Hello EcomPlanet,
-
-I am interested in this product.
-
-Product: ${name}
-Price: ${price}
-
-Please share availability.`;
-    window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`,'_blank');
-  };
-});
-
 </script>
 </body>
 </html>
