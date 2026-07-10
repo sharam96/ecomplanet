@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EcomPlanet - Smart Deals Store</title>
-  <meta name="description" content="Premium electronics, smart appliances and exclusive online deals from EcomPlanet." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcomPlanet - Smart Deals Store</title>
+<meta content="Premium electronics, smart appliances and exclusive online deals from EcomPlanet." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<style>
     :root{
       --blue:#0878ff;
       --blue-dark:#0647c8;
@@ -1490,65 +1491,274 @@
       .category-selector-wrap label {
         text-align: left;
       }
-
-      .product-filter-bar {
-        display: none;
-      }
     }
 
-  </style>
+  
+    /* ===== Uploaded product images ===== */
+    .product-image-wrap{
+      height:190px;
+      padding:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e8f2fa;
+    }
+
+    .product-image-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
+      border-radius:10px;
+      transition:transform .3s ease;
+    }
+
+    .product-card:hover .product-image-wrap img{
+      transform:scale(1.045);
+    }
+
+    @media(max-width:820px){
+      .product-image-wrap{height:175px}
+    }
+
+    @media(max-width:620px){
+      .product-image-wrap{height:165px}
+    }
+
+    @media(max-width:440px){
+      .product-image-wrap{height:220px}
+    }
+
+#productGrid{
+display:grid!important;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr))!important;
+gap:24px!important;
+}
+.product-card{
+display:flex!important;
+flex-direction:column!important;
+}
+
+/* ===== FINAL PRODUCT CARDS FIX ===== */
+#productGrid{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:24px !important;
+  align-items:stretch;
+}
+
+#productGrid .product-card{
+  position:relative;
+  display:flex !important;
+  flex-direction:column !important;
+  width:100% !important;
+  min-width:0;
+  padding:15px !important;
+  background:#ffffff;
+  border:1px solid #dbeefe;
+  border-radius:20px;
+  box-shadow:0 10px 28px rgba(8,120,255,.09);
+  overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+#productGrid .product-card:hover{
+  transform:translateY(-7px);
+  border-color:#7acbff;
+  box-shadow:0 20px 40px rgba(8,120,255,.18);
+}
+
+#productGrid .product-visual{
+  width:100%;
+  height:220px !important;
+  padding:10px;
+  margin-bottom:14px;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  background:#f7fcff;
+  border:1px solid #e7f2fb;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+#productGrid .product-visual img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+  object-position:center;
+  transition:transform .3s ease;
+}
+
+#productGrid .product-card:hover .product-visual img{
+  transform:scale(1.05);
+}
+
+#productGrid .product-card h4{
+  min-height:44px;
+  margin:0 0 8px;
+  font-size:.95rem;
+  line-height:1.45;
+  color:#10243f;
+}
+
+#productGrid .discount{
+  position:absolute;
+  top:24px;
+  left:24px;
+  z-index:3;
+  padding:5px 9px;
+  color:#fff;
+  background:#0878ff;
+  border-radius:7px;
+  font-size:.7rem;
+  font-weight:800;
+}
+
+#productGrid .product-meta{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin:0 0 8px;
+}
+
+#productGrid .old-price{
+  color:#8da0b3;
+  font-size:.75rem;
+  text-decoration:line-through;
+}
+
+#productGrid .new-price{
+  color:#075ce1;
+  font-size:1rem;
+  font-weight:900;
+}
+
+#productGrid .rating{
+  margin-bottom:12px;
+  color:#f3b800;
+  font-size:.75rem;
+}
+
+#productGrid .rating span{
+  color:#7f8fa3;
+}
+
+#productGrid .cart-btn{
+  width:100%;
+  margin-top:auto;
+  padding:11px 14px;
+  border:1px solid #9ed7ff;
+  border-radius:12px;
+  background:#fff;
+  color:#075ce1;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+#productGrid .cart-btn:hover{
+  color:#fff;
+  background:#075ce1;
+}
+
+/* Laptop */
+@media(max-width:1100px){
+  #productGrid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+}
+
+/* Tablet */
+@media(max-width:780px){
+  #productGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:16px !important;
+  }
+
+  #productGrid .product-visual{
+    height:190px !important;
+  }
+}
+
+/* Mobile */
+@media(max-width:520px){
+  #productGrid{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+
+  #productGrid .product-visual{
+    height:240px !important;
+  }
+}
+
+/* ===== Customer photo reviews ===== */
+.review-card{
+  min-height:320px;
+  cursor:default;
+  background:#eef8ff;
+}
+.review-card:hover{transform:translateY(-6px)}
+.review-card::after{
+  background:linear-gradient(to top,rgba(1,20,50,.9),rgba(1,20,50,.08) 58%,transparent 78%);
+}
+.review-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .35s ease;
+}
+.review-card:hover .review-photo{transform:scale(1.045)}
+.review-text h4{display:none}
+@media(max-width:620px){.review-card{min-height:300px}}
+</style>
 </head>
 <body>
-
 <header class="topbar">
-  <div class="container navbar">
-    <a href="#" class="logo">
-      <span class="logo-mark"><i class="fas fa-bag-shopping"></i></span>
+<div class="container navbar">
+<a class="logo" href="#">
+<span class="logo-mark"><i class="fas fa-bag-shopping"></i></span>
       Ecom<span>Planet</span>
-    </a>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#home" class="active">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#deals">Deals</a>
-      <a href="#products">Products</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
-      <a class="header-wa mobile-wa" target="_blank" rel="noopener noreferrer"
-         href="https://wa.me/919326246761?text=Hello%20EcomPlanet">
-        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+</a>
+<nav class="nav-links" id="navLinks">
+<a class="active" href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#deals">Deals</a>
+<a href="#products">Products</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+<a class="header-wa mobile-wa" href="https://wa.me/918375907897?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-whatsapp"></i> Chat on WhatsApp
       </a>
-    </nav>
-
-    <a class="header-wa" target="_blank" rel="noopener noreferrer"
-       href="https://wa.me/919326246761?text=Hello%20EcomPlanet">
-      <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+</nav>
+<a class="header-wa" href="https://wa.me/918375907897?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-whatsapp"></i> Chat on WhatsApp
     </a>
-
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<button aria-expanded="false" aria-label="Open menu" class="hamburger" id="hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
 </header>
-
 <main class="container">
-
-  <section class="hero" id="home">
-    <div class="hero-inner">
-      <div>
-        <div class="trust-pill"><i class="fas fa-shield-halved"></i> India's Trusted Online Store</div>
-        <h1>SHOP SMART <span>SAVE BIG</span></h1>
-        <div class="hero-sub">
-          <span>Premium Products</span>
-          <span>Best Prices</span>
-          <span>Trusted Service</span>
-        </div>
-        <div class="offer-line">
-          <small>UP<br>TO</small>
-          <div class="offer-big">50-60%</div>
-          <small>OFF</small>
-        </div>
-        <div class="on-brands">★ ON TOP BRANDS ★</div>
+<section class="hero" id="home">
+<div class="hero-inner">
+<div>
+<div class="trust-pill"><i class="fas fa-shield-halved"></i> India's Trusted Online Store</div>
+<h1>SHOP SMART <span>SAVE BIG</span></h1>
+<div class="hero-sub">
+<span>Premium Products</span>
+<span>Best Prices</span>
+<span>Trusted Service</span>
+</div>
+<div class="offer-line">
+<small>UP<br/>TO</small>
+<div class="offer-big">50-60%</div>
+<small>OFF</small>
+</div>
+<div class="on-brands">★ ON TOP BRANDS ★</div>
 <div class="cod-banner" style="
 display:inline-block;
 margin:10px 0 18px;
@@ -1562,584 +1772,524 @@ color:#118a3d;
 box-shadow:0 10px 20px rgba(33,201,91,.15);">
 <i class="fas fa-money-bill-wave"></i> CASH ON DELIVERY AVAILABLE
 </div>
-
-
-        <div class="hero-benefits">
-          <span><i class="fas fa-certificate"></i> 100% Genuine</span>
-          <span><i class="fas fa-tags"></i> Best Market Prices</span>
-          <span><i class="fas fa-truck-fast"></i> Fast Delivery</span>
-          <span><i class="fas fa-rotate-left"></i> Easy Returns</span>
-          <span><i class="fas fa-credit-card"></i> Secure Payments</span>
-        </div>
-
-        <div class="hero-actions">
-          <a href="#products" class="btn btn-blue"><i class="fas fa-bag-shopping"></i> SHOP NOW</a>
-          <a target="_blank" rel="noopener noreferrer"
-             href="https://chat.whatsapp.com/KNEl9wVJ2FSFyCAkwP7X7q"
-             class="btn btn-green"><i class="fab fa-whatsapp"></i> JOIN WHATSAPP</a>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="mega-badge"><strong>MEGA</strong>DISCOUNT</div>
-        <div class="device-cluster">
-          <div class="device phone"><i class="fas fa-mobile-screen-button"></i></div>
-          <div class="device tv"><i class="fas fa-tv"></i></div>
-          <div class="device laptop"><i class="fas fa-laptop"></i></div>
-          <div class="device washer"><i class="fas fa-circle-notch"></i></div>
-          <div class="device watch"><i class="fas fa-clock"></i></div>
-        </div>
-        <div class="product-stage"></div>
-        <div class="limited-badge"><i class="fas fa-clock"></i> LIMITED TIME OFFER</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="panel categories" id="categories">
-    <h2 class="section-title">SHOP BY CATEGORY</h2>
-    <div class="category-grid">
-      <a href="#products" class="category-card" data-category="smartphone"><span class="category-icon"><i class="fas fa-mobile-screen-button"></i></span><strong>Smartphones</strong></a>
-      <a href="#products" class="category-card" data-category="laptop"><span class="category-icon"><i class="fas fa-laptop"></i></span><strong>Laptops</strong></a>
-      <a href="#products" class="category-card" data-category="tv"><span class="category-icon"><i class="fas fa-tv"></i></span><strong>Smart TVs</strong></a>
-      <a href="#products" class="category-card" data-category="washing"><span class="category-icon"><i class="fas fa-shirt"></i></span><strong>Washing Machines</strong></a>
-      <a href="#products" class="category-card" data-category="refrigerator"><span class="category-icon"><i class="fas fa-box"></i></span><strong>Refrigerators</strong></a>
-      <a href="#products" class="category-card" data-category="wearable"><span class="category-icon"><i class="fas fa-clock"></i></span><strong>Smart Watches</strong></a>
-      <a href="#products" class="category-card" data-category="audio"><span class="category-icon"><i class="fas fa-headphones"></i></span><strong>Earbuds</strong></a>
-      <a href="#products" class="category-card" data-category="camera"><span class="category-icon"><i class="fas fa-camera"></i></span><strong>Cameras</strong></a>
-    </div>
-  </section>
-
-  <section class="promo-banner" id="deals">
-    <div class="promo-tag">
-      <span>MEGA DEALS</span>
-      <h3>SAVE UP TO</h3>
-    </div>
-    <div class="promo-big">50-60%<small style="font-size:.3em"> OFF</small></div>
-    <div class="promo-copy">
-      <p>Don't miss today's exclusive discounts on premium electronics and home appliances.</p>
-      <ul>
-        <li>Best Prices Guaranteed</li>
-        <li>100% Original Products</li>
-        <li>Hassle-Free Returns</li>
-      </ul>
-      <a href="#products" class="btn" style="background:#fff;color:#075ce1;padding:11px 18px">EXPLORE DEALS <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </section>
-
-  <section class="panel products" id="products">
-    <h2 class="section-title">FEATURED PRODUCTS</h2>
-    
-
-    <div class="category-selector-wrap">
-      <label for="productCategorySelector">
-        <i class="fas fa-filter"></i> Select Category
-      </label>
-      <select class="category-selector" id="productCategorySelector">
-        <option value="all">All Products</option>
-        <option value="smartphone">Smartphones</option>
-        <option value="laptop">Laptops</option>
-        <option value="tv">Smart TVs</option>
-        <option value="washing">Washing Machines</option>
-        <option value="refrigerator">Refrigerators</option>
-        <option value="wearable">Smart Watches</option>
-        <option value="audio">Earbuds & Audio</option>
-        <option value="camera">Cameras</option>
-      </select>
-    </div>
-
-    <div class="product-filter-bar">
-      <button class="product-filter-btn active" data-filter="all">All</button>
-      <button class="product-filter-btn" data-filter="smartphone">Smartphones</button>
-      <button class="product-filter-btn" data-filter="laptop">Laptops</button>
-      <button class="product-filter-btn" data-filter="tv">Smart TVs</button>
-      <button class="product-filter-btn" data-filter="washing">Washing Machines</button>
-      <button class="product-filter-btn" data-filter="refrigerator">Refrigerators</button>
-      <button class="product-filter-btn" data-filter="wearable">Smart Watches</button>
-      <button class="product-filter-btn" data-filter="audio">Audio</button>
-      <button class="product-filter-btn" data-filter="camera">Cameras</button>
-    </div>
-    <div class="product-count" id="productCount">25 products found</div>
-    <div class="product-grid" id="productGrid">
-      
-      <article class="product-card" data-cat="smartphone">
-        <span class="discount">-18%</span>
-        <div class="product-visual"><i class="fas fa-mobile-screen-button"></i></div>
-        <h4>Apple iPhone 15 Pro 256GB</h4>
-        <div class="product-meta">
-          <span class="old-price">₹1,34,900</span>
-          <span class="new-price">₹1,09,900</span>
-        </div>
-        <div class="rating">★★★★★ <span>(128)</span></div>
-        <button class="cart-btn" data-product="Apple iPhone 15 Pro 256GB">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="smartphone">
-        <span class="discount">-20%</span>
-        <div class="product-visual"><i class="fas fa-mobile-screen-button"></i></div>
-        <h4>Samsung Galaxy S24 5G</h4>
-        <div class="product-meta">
-          <span class="old-price">₹99,999</span>
-          <span class="new-price">₹79,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(112)</span></div>
-        <button class="cart-btn" data-product="Samsung Galaxy S24 5G">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="smartphone">
-        <span class="discount">-13%</span>
-        <div class="product-visual"><i class="fas fa-mobile-screen-button"></i></div>
-        <h4>OnePlus 12 5G</h4>
-        <div class="product-meta">
-          <span class="old-price">₹79,999</span>
-          <span class="new-price">₹69,999</span>
-        </div>
-        <div class="rating">★★★★★ <span>(89)</span></div>
-        <button class="cart-btn" data-product="OnePlus 12 5G">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="smartphone">
-        <span class="discount">-15%</span>
-        <div class="product-visual"><i class="fas fa-mobile-screen-button"></i></div>
-        <h4>Google Pixel 8 Pro</h4>
-        <div class="product-meta">
-          <span class="old-price">₹1,29,999</span>
-          <span class="new-price">₹1,09,999</span>
-        </div>
-        <div class="rating">★★★★★ <span>(76)</span></div>
-        <button class="cart-btn" data-product="Google Pixel 8 Pro">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="laptop">
-        <span class="discount">-20%</span>
-        <div class="product-visual"><i class="fas fa-laptop"></i></div>
-        <h4>Dell Inspiron 15 Laptop</h4>
-        <div class="product-meta">
-          <span class="old-price">₹56,990</span>
-          <span class="new-price">₹45,490</span>
-        </div>
-        <div class="rating">★★★★★ <span>(73)</span></div>
-        <button class="cart-btn" data-product="Dell Inspiron 15 Laptop">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="laptop">
-        <span class="discount">-15%</span>
-        <div class="product-visual"><i class="fas fa-laptop"></i></div>
-        <h4>Apple MacBook Air M3</h4>
-        <div class="product-meta">
-          <span class="old-price">₹1,29,900</span>
-          <span class="new-price">₹1,09,900</span>
-        </div>
-        <div class="rating">★★★★★ <span>(96)</span></div>
-        <button class="cart-btn" data-product="Apple MacBook Air M3">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="laptop">
-        <span class="discount">-16%</span>
-        <div class="product-visual"><i class="fas fa-laptop"></i></div>
-        <h4>ASUS ROG Zephyrus G14</h4>
-        <div class="product-meta">
-          <span class="old-price">₹1,89,990</span>
-          <span class="new-price">₹1,59,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(48)</span></div>
-        <button class="cart-btn" data-product="ASUS ROG Zephyrus G14">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="laptop">
-        <span class="discount">-19%</span>
-        <div class="product-visual"><i class="fas fa-laptop"></i></div>
-        <h4>HP Pavilion Plus 14</h4>
-        <div class="product-meta">
-          <span class="old-price">₹89,990</span>
-          <span class="new-price">₹72,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(67)</span></div>
-        <button class="cart-btn" data-product="HP Pavilion Plus 14">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="tv">
-        <span class="discount">-22%</span>
-        <div class="product-visual"><i class="fas fa-tv"></i></div>
-        <h4>Samsung 55” 4K Smart TV</h4>
-        <div class="product-meta">
-          <span class="old-price">₹64,990</span>
-          <span class="new-price">₹49,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(96)</span></div>
-        <button class="cart-btn" data-product="Samsung 55” 4K Smart TV">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="tv">
-        <span class="discount">-20%</span>
-        <div class="product-visual"><i class="fas fa-tv"></i></div>
-        <h4>Sony Bravia 55” OLED TV</h4>
-        <div class="product-meta">
-          <span class="old-price">₹1,49,990</span>
-          <span class="new-price">₹1,19,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(61)</span></div>
-        <button class="cart-btn" data-product="Sony Bravia 55” OLED TV">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="tv">
-        <span class="discount">-19%</span>
-        <div class="product-visual"><i class="fas fa-tv"></i></div>
-        <h4>LG C3 48” OLED TV</h4>
-        <div class="product-meta">
-          <span class="old-price">₹1,29,990</span>
-          <span class="new-price">₹1,04,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(54)</span></div>
-        <button class="cart-btn" data-product="LG C3 48” OLED TV">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="washing">
-        <span class="discount">-23%</span>
-        <div class="product-visual"><i class="fas fa-circle-notch"></i></div>
-        <h4>LG 8kg AI Washing Machine</h4>
-        <div class="product-meta">
-          <span class="old-price">₹29,990</span>
-          <span class="new-price">₹22,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(48)</span></div>
-        <button class="cart-btn" data-product="LG 8kg AI Washing Machine">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="washing">
-        <span class="discount">-20%</span>
-        <div class="product-visual"><i class="fas fa-circle-notch"></i></div>
-        <h4>Samsung 9kg Front Load Washer</h4>
-        <div class="product-meta">
-          <span class="old-price">₹43,990</span>
-          <span class="new-price">₹34,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(52)</span></div>
-        <button class="cart-btn" data-product="Samsung 9kg Front Load Washer">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="washing">
-        <span class="discount">-22%</span>
-        <div class="product-visual"><i class="fas fa-circle-notch"></i></div>
-        <h4>IFB 7kg Fully Automatic Washer</h4>
-        <div class="product-meta">
-          <span class="old-price">₹37,990</span>
-          <span class="new-price">₹29,490</span>
-        </div>
-        <div class="rating">★★★★★ <span>(41)</span></div>
-        <button class="cart-btn" data-product="IFB 7kg Fully Automatic Washer">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="refrigerator">
-        <span class="discount">-19%</span>
-        <div class="product-visual"><i class="fas fa-box"></i></div>
-        <h4>Samsung 653L Side-by-Side Refrigerator</h4>
-        <div class="product-meta">
-          <span class="old-price">₹89,990</span>
-          <span class="new-price">₹72,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(46)</span></div>
-        <button class="cart-btn" data-product="Samsung 653L Side-by-Side Refrigerator">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="refrigerator">
-        <span class="discount">-18%</span>
-        <div class="product-visual"><i class="fas fa-box"></i></div>
-        <h4>LG 260L Double Door Refrigerator</h4>
-        <div class="product-meta">
-          <span class="old-price">₹34,990</span>
-          <span class="new-price">₹28,490</span>
-        </div>
-        <div class="rating">★★★★★ <span>(63)</span></div>
-        <button class="cart-btn" data-product="LG 260L Double Door Refrigerator">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="refrigerator">
-        <span class="discount">-17%</span>
-        <div class="product-visual"><i class="fas fa-box"></i></div>
-        <h4>Whirlpool 235L Frost Free Refrigerator</h4>
-        <div class="product-meta">
-          <span class="old-price">₹29,990</span>
-          <span class="new-price">₹24,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(58)</span></div>
-        <button class="cart-btn" data-product="Whirlpool 235L Frost Free Refrigerator">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="wearable">
-        <span class="discount">-10%</span>
-        <div class="product-visual"><i class="fas fa-clock"></i></div>
-        <h4>Apple Watch Ultra 2</h4>
-        <div class="product-meta">
-          <span class="old-price">₹99,900</span>
-          <span class="new-price">₹89,900</span>
-        </div>
-        <div class="rating">★★★★★ <span>(56)</span></div>
-        <button class="cart-btn" data-product="Apple Watch Ultra 2">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="wearable">
-        <span class="discount">-18%</span>
-        <div class="product-visual"><i class="fas fa-clock"></i></div>
-        <h4>Samsung Galaxy Watch 6 Classic</h4>
-        <div class="product-meta">
-          <span class="old-price">₹54,990</span>
-          <span class="new-price">₹44,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(78)</span></div>
-        <button class="cart-btn" data-product="Samsung Galaxy Watch 6 Classic">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="wearable">
-        <span class="discount">-17%</span>
-        <div class="product-visual"><i class="fas fa-clock"></i></div>
-        <h4>Fitbit Sense 2</h4>
-        <div class="product-meta">
-          <span class="old-price">₹29,990</span>
-          <span class="new-price">₹24,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(43)</span></div>
-        <button class="cart-btn" data-product="Fitbit Sense 2">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="audio">
-        <span class="discount">-25%</span>
-        <div class="product-visual"><i class="fas fa-headphones"></i></div>
-        <h4>boAt Airdopes 141 Earbuds</h4>
-        <div class="product-meta">
-          <span class="old-price">₹2,990</span>
-          <span class="new-price">₹1,299</span>
-        </div>
-        <div class="rating">★★★★★ <span>(204)</span></div>
-        <button class="cart-btn" data-product="boAt Airdopes 141 Earbuds">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="audio">
-        <span class="discount">-23%</span>
-        <div class="product-visual"><i class="fas fa-headphones"></i></div>
-        <h4>AirPods Pro 2nd Gen</h4>
-        <div class="product-meta">
-          <span class="old-price">₹29,900</span>
-          <span class="new-price">₹22,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(188)</span></div>
-        <button class="cart-btn" data-product="AirPods Pro 2nd Gen">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="audio">
-        <span class="discount">-14%</span>
-        <div class="product-visual"><i class="fas fa-headphones"></i></div>
-        <h4>Sony WH-1000XM5 Headphones</h4>
-        <div class="product-meta">
-          <span class="old-price">₹34,990</span>
-          <span class="new-price">₹29,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(88)</span></div>
-        <button class="cart-btn" data-product="Sony WH-1000XM5 Headphones">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="camera">
-        <span class="discount">-18%</span>
-        <div class="product-visual"><i class="fas fa-camera"></i></div>
-        <h4>Canon EOS 200D II Camera</h4>
-        <div class="product-meta">
-          <span class="old-price">₹64,995</span>
-          <span class="new-price">₹52,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(64)</span></div>
-        <button class="cart-btn" data-product="Canon EOS 200D II Camera">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-      <article class="product-card" data-cat="camera">
-        <span class="discount">-12%</span>
-        <div class="product-visual"><i class="fas fa-camera"></i></div>
-        <h4>Sony Alpha 7 IV Camera</h4>
-        <div class="product-meta">
-          <span class="old-price">₹2,49,990</span>
-          <span class="new-price">₹2,19,990</span>
-        </div>
-        <div class="rating">★★★★★ <span>(47)</span></div>
-        <button class="cart-btn" data-product="Sony Alpha 7 IV Camera">
-          Add to Cart <i class="fas fa-cart-shopping"></i>
-        </button>
-      </article>
-    </div>
-
-  </section>
-
-  <section class="panel trust-strip">
-    <div class="trust-grid">
-      <div class="trust-item"><i class="fas fa-shield-halved"></i><div><strong>Verified Products</strong><small>100% original and genuine</small></div></div>
-      <div class="trust-item"><i class="fas fa-lock"></i><div><strong>Secure Shopping</strong><small>Your data stays safe</small></div></div>
-      <div class="trust-item"><i class="fas fa-truck-fast"></i><div><strong>Fast Delivery</strong><small>Quick doorstep service</small></div></div>
-      <div class="trust-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp Support</strong><small>Instant help available</small></div></div>
-      <div class="trust-item"><i class="fas fa-tags"></i><div><strong>Best Deals</strong><small>Exclusive daily offers</small></div></div>
-      <div class="trust-item"><i class="fas fa-face-smile"></i><div><strong>Happy Customers</strong><small>Trusted by thousands</small></div></div>
-    </div>
-  </section>
-
-  <section class="community">
-    <div class="community-icon"><i class="fab fa-whatsapp"></i></div>
-    <div class="community-copy">
-      <h3>JOIN OUR WHATSAPP COMMUNITY</h3>
-      <p>Get Exclusive Deals Before Everyone Else!</p>
-      <div class="community-pills">
-        <span><i class="fas fa-bolt"></i> Daily Offers</span>
-        <span><i class="fas fa-star"></i> Flash Sales</span>
-        <span><i class="fas fa-box-open"></i> New Arrivals</span>
-        <span><i class="fas fa-ticket"></i> Special Coupons</span>
-      </div>
-    </div>
-    <a target="_blank" rel="noopener noreferrer"
-       href="https://chat.whatsapp.com/KNEl9wVJ2FSFyCAkwP7X7q"
-       class="btn"><i class="fab fa-whatsapp"></i> JOIN NOW</a>
-  </section>
-
-  <section class="panel reviews" id="reviews">
-    <h2 class="section-title">CUSTOMER VIDEO REVIEWS</h2>
-    <p class="reviews-intro">These are dummy video review cards. Replace the sample clips later with real customer testimonial videos.</p>
-    <div class="review-grid">
-      <article class="review-card" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
-        <div class="review-icon"><i class="fas fa-mobile-screen-button"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Aarav Mehta</h4><p>Fast delivery and premium packaging. Totally satisfied.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://www.w3schools.com/html/mov_bbb.mp4">
-        <div class="review-icon"><i class="fas fa-laptop"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Riya Kapoor</h4><p>Great laptop deal and quick WhatsApp support.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4">
-        <div class="review-icon"><i class="fas fa-headphones"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Kabir Singh</h4><p>Product was genuine and delivered safely.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
-        <div class="review-icon"><i class="fas fa-tv"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Meera Joshi</h4><p>The TV offer saved me a lot. Excellent experience.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://www.w3schools.com/html/mov_bbb.mp4">
-        <div class="review-icon"><i class="fas fa-clock"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Arjun Malhotra</h4><p>Good quality smartwatch and responsive team.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4">
-        <div class="review-icon"><i class="fas fa-camera"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Sana Khan</h4><p>Camera arrived in perfect condition. Loved it.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
-        <div class="review-icon"><i class="fas fa-box-open"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Dev Patel</h4><p>Secure packaging and smooth buying process.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://www.w3schools.com/html/mov_bbb.mp4">
-        <div class="review-icon"><i class="fas fa-thumbs-up"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Ananya Rao</h4><p>Would recommend EcomPlanet to my friends.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4">
-        <div class="review-icon"><i class="fas fa-bolt"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Vivaan Gupta</h4><p>Quick response and best available price.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
-        <div class="review-icon"><i class="fas fa-certificate"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Ishita Verma</h4><p>Original product with no hidden surprises.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://www.w3schools.com/html/mov_bbb.mp4">
-        <div class="review-icon"><i class="fas fa-bag-shopping"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Reyansh Arora</h4><p>Easy ordering and helpful support team.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-      <article class="review-card" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4">
-        <div class="review-icon"><i class="fas fa-star"></i></div><span class="play"><i class="fas fa-play"></i></span>
-        <div class="review-text"><div class="stars">★★★★★</div><h4>Naina Sharma</h4><p>Premium service and useful deal updates.</p><span class="verified">✓ Verified Buyer</span></div>
-      </article>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="contact-info">
-      <span class="label">Contact EcomPlanet</span>
-      <h2>Need help choosing the right product?</h2>
-      <p>Tell us your budget and preferred category. Our team will connect with you on WhatsApp with the best available deal.</p>
-      <div class="contact-points">
-        <div class="contact-point"><i class="fab fa-whatsapp"></i> Fast WhatsApp assistance</div>
-        <div class="contact-point"><i class="fas fa-shield-halved"></i> Secure and private enquiry</div>
-        <div class="contact-point"><i class="fas fa-clock"></i> Quick response during business hours</div>
-      </div>
-    </div>
-
-    <div class="form-card">
-      <h3>Send an Enquiry</h3>
-      <p>Fill the form and continue directly on WhatsApp.</p>
-      <form class="form" id="contactForm">
-        <div class="form-row">
-          <div class="field"><label for="name">Full Name</label><input id="name" required placeholder="Your name"></div>
-          <div class="field"><label for="phone">Phone Number</label><input id="phone" required inputmode="numeric" placeholder="10-digit number"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@example.com"></div>
-          <div class="field">
-            <label for="category">Interested In</label>
-            <select id="category" required>
-              <option value="">Select category</option>
-              <option>Smartphone</option><option>Laptop</option><option>Smart TV</option>
-              <option>Home Appliance</option><option>Audio</option><option>Camera</option><option>Other</option>
-            </select>
-          </div>
-        </div>
-        <div class="field"><label for="message">Requirement</label><textarea id="message" required placeholder="Tell us your budget, brand or product requirement..."></textarea></div>
-        <button class="submit-btn" type="submit"><i class="fab fa-whatsapp"></i> Send Enquiry on WhatsApp</button>
-        <div class="form-status" id="formStatus" aria-live="polite"></div>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="logo" style="color:#fff;margin-bottom:12px"><span class="logo-mark"><i class="fas fa-bag-shopping"></i></span>Ecom<span>Planet</span></div>
-        <p>Premium electronics, smart appliances and exclusive deals with fast WhatsApp support.</p>
-      </div>
-      <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#products">Products</a><a href="#reviews">Reviews</a></div>
-      <div><h4>Categories</h4><a href="#categories">Smartphones</a><a href="#categories">Laptops</a><a href="#categories">Smart TVs</a></div>
-      <div><h4>Support</h4><a href="#contact">Contact Us</a><a target="_blank" rel="noopener noreferrer" href="https://wa.me/919326246761?text=Hello%20EcomPlanet">WhatsApp</a><a href="#">Privacy Policy</a></div>
-    </div>
-    <div class="copyright">© 2026 EcomPlanet. All rights reserved.</div>
-  </div>
-</footer>
-
-<a class="float-wa" target="_blank" rel="noopener noreferrer"
-   href="https://wa.me/919326246761?text=Hello%20EcomPlanet" aria-label="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<div class="video-modal" id="videoModal" aria-hidden="true">
-  <div class="video-box">
-    <button class="close-modal" id="closeModal" aria-label="Close video"><i class="fas fa-xmark"></i></button>
-    <video id="reviewVideo" controls playsinline></video>
-  </div>
+<div class="hero-benefits">
+<span><i class="fas fa-certificate"></i> 100% Genuine</span>
+<span><i class="fas fa-tags"></i> Best Market Prices</span>
+<span><i class="fas fa-truck-fast"></i> Fast Delivery</span>
+<span><i class="fas fa-rotate-left"></i> Easy Returns</span>
+<span><i class="fas fa-credit-card"></i> Secure Payments</span>
 </div>
+<div class="hero-actions">
+<a class="btn btn-blue" href="#products"><i class="fas fa-bag-shopping"></i> SHOP NOW</a>
+<a class="btn btn-green" href="https://chat.whatsapp.com/KNEl9wVJ2FSFyCAkwP7X7q" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i> JOIN WHATSAPP</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="mega-badge"><strong>MEGA</strong>DISCOUNT</div>
+<div class="device-cluster">
+<div class="device phone"><i class="fas fa-mobile-screen-button"></i></div>
+<div class="device tv"><i class="fas fa-tv"></i></div>
+<div class="device laptop"><i class="fas fa-laptop"></i></div>
+<div class="device washer"><i class="fas fa-circle-notch"></i></div>
+<div class="device watch"><i class="fas fa-clock"></i></div>
+</div>
+<div class="product-stage"></div>
+<div class="limited-badge"><i class="fas fa-clock"></i> LIMITED TIME OFFER</div>
+</div>
+</div>
+</section>
+<section class="panel categories" id="categories">
+<h2 class="section-title">PRODUCTS</h2>
+<div class="category-grid">
+<a class="category-card" href="#products"><span class="category-icon"><i class="fas fa-mobile-screen-button"></i></span><strong>Smartphones</strong></a>
+<a class="category-card" href="#products"><span class="category-icon"><i class="fas fa-laptop"></i></span><strong>Laptops</strong></a>
+<a class="category-card" href="#products"><span class="category-icon"><i class="fas fa-tv"></i></span><strong>Smart TVs</strong></a>
+<a class="category-card" href="#products"><span class="category-icon"><i class="fas fa-shirt"></i></span><strong>Washing Machines</strong></a>
+<a class="category-card" href="#products"><span class="category-icon"><i class="fas fa-box"></i></span><strong>Refrigerators</strong></a>
+<a class="category-card" href="#products"><span class="category-icon"><i class="fas fa-clock"></i></span><strong>Smart Watches</strong></a>
+<a class="category-card" href="#products"><span class="category-icon"><i class="fas fa-headphones"></i></span><strong>Earbuds</strong></a>
+<a class="category-card" href="#products"><span class="category-icon"><i class="fas fa-camera"></i></span><strong>Cameras</strong></a>
+</div>
+</section>
+<section class="promo-banner" id="deals">
+<div class="promo-tag">
+<span>MEGA DEALS</span>
+<h3>SAVE UP TO</h3>
+</div>
+<div class="promo-big">50-60%<small style="font-size:.3em"> OFF</small></div>
+<div class="promo-copy">
+<p>Don't miss today's exclusive discounts on premium electronics and home appliances.</p>
+<ul>
+<li>Best Prices Guaranteed</li>
+<li>100% Original Products</li>
+<li>Hassle-Free Returns</li>
+</ul>
+<a class="btn" href="#products" style="background:#fff;color:#075ce1;padding:11px 18px">EXPLORE DEALS <i class="fas fa-arrow-right"></i></a>
+</div>
+</section>
+<section class="panel products" id="products">
+<h2 class="section-title">FEATURED PRODUCTS</h2>
+<!-- =========================================================
+         ADD / EDIT YOUR PRODUCTS BELOW
 
+         Allowed data-cat values:
+         smartphone, laptop, tv, washing,
+         refrigerator, wearable, audio, camera
+
+         To add a new product:
+         1. Copy one complete <article class="product-card"> block.
+         2. Paste it before the closing </div> of productGrid.
+         3. Change product name, prices, discount, rating and data-cat.
+         4. Keep data-product the same as the product name.
+         ========================================================= -->
+<div class="product-grid" id="productGrid">
+  <article class="product-card" data-cat="ac">
+    <span class="discount">-45%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="Daikin Inverter AC" loading="lazy" src="images/daikin ac.jpeg"/>
+    </div>
+    <h4>Daikin Inverter AC</h4>
+    <div class="product-meta">
+      <span class="old-price">₹77,000</span>
+      <span class="new-price">₹22,000</span>
+    </div>
+   <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+</div>
+    <button class="cart-btn" data-product="Daikin Inverter AC">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="laptop">
+    <span class="discount">-47%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="Dell XPS 16 Laptop" loading="lazy" src="images/Dell xps16.jpeg"/>
+    </div>
+    <h4>Dell Premium 16 (XPS 16 2025) Intel Core Ultra 9 285H (16-Core) 1TB SSD 32GB RAM NVIDIA RTX 5060 8GB 16.3" 2K+ FHD 120Hz Windows 11 PRO Laptop</h4>
+    <div class="product-meta">
+      <span class="old-price">₹2,78,550</span>
+      <span class="new-price">₹1,47,632</span>
+    </div>
+    <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star-half-stroke"></i>
+</div>
+    <button class="cart-btn" data-product="Dell XPS 16 Laptop">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="personal-care">
+    <span class="discount">-43%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="Dyson Hair Styling Kit" loading="lazy" src="images/dyson hair kit.jpeg"/>
+    </div>
+    <h4>Dyson Hair Styling Kit</h4>
+    <div class="product-meta">
+      <span class="old-price">₹52,000</span>
+      <span class="new-price">₹19,000</span>
+    </div>
+    <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star-half-stroke"></i>
+</div>
+    <button class="cart-btn" data-product="Dyson Hair Styling Kit">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="tablet">
+    <span class="discount">-56%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="iPad Air 13" loading="lazy" src="images/ipaid air 13.jpeg"/>
+    </div>
+    <h4>Apple iPad Air Wi-Fi (13 Inch, 1TB, Starlight, 2024 model)</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,09,994</span>
+      <span class="new-price">₹48,397</span>
+    </div>
+    <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i> 
+</div>
+    <button class="cart-btn" data-product="iPad Air 13">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="smartphone">
+    <span class="discount">-57%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="iPhone 16 256GB" loading="lazy" src="images/iphone 16 256GB.jpeg"/>
+    </div>
+    <h4>APPLE iPhone 16 (Ultramarine, 256 GB)</h4>
+    <div class="product-meta">
+      <span class="old-price">₹79,900</span>
+      <span class="new-price">₹34,357</span>
+    </div>
+      <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star-half-stroke"></i>
+</div>
+    <button class="cart-btn" data-product="iPhone 16 256GB">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="smartphone">
+    <span class="discount">-77%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="iPhone 16 Pro Max" loading="lazy" src="images/iphone 16pro max.jpeg"/>
+    </div>
+    <h4>iPhone 16 Pro Max (128GB)</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,29,900</span>
+      <span class="new-price">₹29,877</span>
+    </div>
+    <div class="rating">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+    <button class="cart-btn" data-product="iPhone 16 Pro Max">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="smartphone">
+    <span class="discount">-47%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="iPhone 17 Pro Max Platinum" loading="lazy" src="images/iphone 17 pro max platinum.jpeg"/>
+    </div>
+    <h4>iPhone 17 Pro Max Platinum</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,19,900</span>
+      <span class="new-price">₹67,000</span>
+    </div>
+     <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star-half-stroke"></i>
+</div>
+    <button class="cart-btn" data-product="iPhone 17 Pro Max Platinum">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="smartphone">
+    <span class="discount">-65%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="iPhone Air 256GB White" loading="lazy" src="images/iphone air 256 gb white.jpeg"/>
+    </div>
+    <h4>Apple iPhone Air 256 GB: Light gold</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,19,900</span>
+      <span class="new-price">₹41,965</span>
+    </div>
+      <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+</div>
+    <button class="cart-btn" data-product="iPhone Air 256GB White">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="smartphone">
+    <span class="discount">-55%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="iPhone Air 256GB Black" loading="lazy" src="images/iphone air 256 gb.jpeg"/>
+    </div>
+    <h4>iPhone Air 256GB Black</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,01,900</span>
+      <span class="new-price">₹45,855</span>
+    </div>
+  <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star-half-stroke"></i>
+</div>
+    <button class="cart-btn" data-product="iPhone Air 256GB Black">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="tv">
+    <span class="discount">-64%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="LG 189 cms (75 inches) NU87 AI Series 4K Ultra HD (3840 x 2160) Smart webOS LED TV 75NU870BPLA" loading="lazy" src="images/lg nano 4k uhd ai.jpeg"/>
+    </div>
+    <h4>LG 189 cms (75 inches) NU87 AI Series 4K Ultra HD (3840 x 2160) Smart webOS LED TV 75NU870BPLA</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,75,990</span>
+      <span class="new-price">₹63,356</span>
+    </div>
+   <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+   <i class="fa-solid fa-star"></i>
+</div>
+    <button class="cart-btn" data-product="LG 189 cms (75 inches) NU87 AI Series 4K Ultra HD (3840 x 2160) Smart webOS LED TV 75NU870BPLA">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="laptop">
+    <span class="discount">-76%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="MacBook Air 2024" loading="lazy" src="images/macbook air 2024.jpeg"/>
+    </div>
+    <h4>Apple 2024 MacBook Air 15″ Laptop with M3 chip: 38.91 cm (15.3″) Liquid Retina Display, 24GB Unified Memory, 512GB SSD Storage, Backlit Keyboard, 1080p FaceTime HD Camera, Touch ID- Space Grey</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,67,990</span>
+      <span class="new-price">₹40,318</span>
+    </div>
+      <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+</div>
+    <button class="cart-btn" data-product="MacBook Air 2024">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="ac">
+    <span class="discount">-36%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="Panasonic Smart AC" loading="lazy" src="images/panasonic ac.jpeg"/>
+    </div>
+    <h4>Panasonic Smart AC</h4>
+    <div class="product-meta">
+      <span class="old-price">₹82,000</span>
+      <span class="new-price">₹41,000</span>
+    </div>
+  <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+</div>
+    <button class="cart-btn" data-product="Panasonic Smart AC">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="smartphone">
+    <span class="discount">-14%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="Samsung Galaxy S26 Ultra" loading="lazy" src="images/samsung s26 ultra.jpeg"/>
+    </div>
+    <h4>Samsung Galaxy S26 Ultra</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,39,999</span>
+      <span class="new-price">₹1,19,999</span>
+    </div>
+  <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star-half-stroke"></i>
+</div>
+    <button class="cart-btn" data-product="Samsung Galaxy S26 Ultra">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="smartphone">
+    <span class="discount">-45%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="Samsung Galaxy S26" loading="lazy" src="images/samsung s26.jpeg"/>
+    </div>
+    <h4>Samsung Galaxy S26 5G (Cobalt Violet, 12GB RAM, 512GB Storage)
+</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,07,999</span>
+      <span class="new-price">₹59,399</span>
+    </div>
+   <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star-half-stroke"></i>
+</div>
+    <button class="cart-btn" data-product="Samsung Galaxy S26">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+  <article class="product-card" data-cat="wearable">
+    <span class="discount">-38%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="Ultra Watch 3" loading="lazy" src="images/ultra watch 3.jpeg"/>
+    </div>
+    <h4>Apple Watch Ultra 3 GPS + Cellular 49mm Natural Titanium Case with Natural Titanium Milanese Loop - Large</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,04,900</span>
+      <span class="new-price">₹65,038</span>
+    </div>
+      <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+</div>
+    <button class="cart-btn" data-product="Ultra Watch 3">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+   <article class="product-card" data-cat="wearable">
+    <span class="discount">-50%</span>
+    <div class="product-visual product-image-wrap">
+      <img alt="Panasonic LUMIX G100" loading="lazy" src="images/camera.jpeg"/>
+    </div>
+    <h4>Panasonic LUMIX G100 4k Mirrorless Camera for Photo and Video, Built-in Microphone with Tracking, Micro Four Thirds Interchangeable Lens System, 12-32mm Lens, 5-Axis Hybrid I.S
+</h4>
+    <div class="product-meta">
+      <span class="old-price">₹1,46,840</span>
+      <span class="new-price">₹73,420</span>
+    </div>
+      <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+</div>
+    <button class="cart-btn" data-product="Panasonic LUMIX G100">Add to Cart <i class="fas fa-cart-shopping"></i></button>
+  </article>
+
+</div>
+<section class="panel trust-strip">
+<div class="trust-grid">
+<div class="trust-item"><i class="fas fa-shield-halved"></i><div><strong>Verified Products</strong><small>100% original and genuine</small></div></div>
+<div class="trust-item"><i class="fas fa-lock"></i><div><strong>Secure Shopping</strong><small>Your data stays safe</small></div></div>
+<div class="trust-item"><i class="fas fa-truck-fast"></i><div><strong>Fast Delivery</strong><small>Quick doorstep service</small></div></div>
+<div class="trust-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp Support</strong><small>Instant help available</small></div></div>
+<div class="trust-item"><i class="fas fa-tags"></i><div><strong>Best Deals</strong><small>Exclusive daily offers</small></div></div>
+<div class="trust-item"><i class="fas fa-face-smile"></i><div><strong>Happy Customers</strong><small>Trusted by thousands</small></div></div>
+</div>
+</section>
+<section class="community">
+<div class="community-icon"><i class="fab fa-whatsapp"></i></div>
+<div class="community-copy">
+<h3>JOIN OUR WHATSAPP COMMUNITY</h3>
+<p>Get Exclusive Deals Before Everyone Else!</p>
+<div class="community-pills">
+<span><i class="fas fa-bolt"></i> Daily Offers</span>
+<span><i class="fas fa-star"></i> Flash Sales</span>
+<span><i class="fas fa-box-open"></i> New Arrivals</span>
+<span><i class="fas fa-ticket"></i> Special Coupons</span>
+</div>
+</div>
+<a class="btn" href="https://chat.whatsapp.com/KNEl9wVJ2FSFyCAkwP7X7q" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i> JOIN NOW</a>
+</section>
+<section class="panel reviews" id="reviews">
+<h2 class="section-title">CUSTOMER REVIEWS</h2>
+<p class="reviews-intro">Real product photos shared by our customers after receiving their orders.</p>
+<div class="review-grid">
+<article class="review-card">
+<img class="review-photo" src="reviews/1.jpeg" alt="Customer product review 1" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>Excellent product quality and secure packaging.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/3.jpeg" alt="Customer product review 2" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>The product arrived safely and looks exactly as expected.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/2.jpeg" alt="Customer product review 3" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>Very happy with the phone and the overall buying experience.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/4.jpeg" alt="Customer product review 4" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>Original product with neat packaging and quick assistance.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/5.jpeg" alt="Customer product review 5" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>AC delivered in good condition and working properly.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/6.jpeg" alt="Customer product review 6" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>TV quality is excellent and delivery was smooth.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/7.jpeg" alt="Customer product review 7" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>Smartwatch looks premium and works perfectly.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/8.jpeg" alt="Customer product review 8" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>MacBook received safely with proper packaging.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/9.jpeg" alt="Customer product review 9" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>Satisfied with the product and customer support.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/10.jpeg" alt="Customer product review 10" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>The styling kit is genuine and came with all accessories.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/11.jpeg" alt="Customer product review 11" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>Product received in perfect condition.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+<article class="review-card">
+<img class="review-photo" src="reviews/12.jpeg" alt="Customer product review 12" loading="lazy"/>
+<div class="review-text"><div class="stars">★★★★★</div><p>Good quality product and a smooth purchase experience.</p><span class="verified">✓ Verified Purchase</span></div>
+</article>
+</div>
+</section>
+<section class="contact" id="contact">
+<div class="contact-info">
+<span class="label">Contact EcomPlanet</span>
+<h2>Need help choosing the right product?</h2>
+<p>Tell us your budget and preferred category. Our team will connect with you on WhatsApp with the best available deal.</p>
+<div class="contact-points">
+<div class="contact-point"><i class="fab fa-whatsapp"></i> Fast WhatsApp assistance</div>
+<div class="contact-point"><i class="fas fa-shield-halved"></i> Secure and private enquiry</div>
+<div class="contact-point"><i class="fas fa-clock"></i> Quick response during business hours</div>
+</div>
+</div>
+<div class="form-card">
+<h3>Send an Enquiry</h3>
+<p>Fill the form and continue directly on WhatsApp.</p>
+<form class="form" id="contactForm">
+<div class="form-row">
+<div class="field"><label for="name">Full Name</label><input id="name" placeholder="Your name" required=""/></div>
+<div class="field"><label for="phone">Phone Number</label><input id="phone" inputmode="numeric" placeholder="10-digit number" required=""/></div>
+</div>
+<div class="form-row">
+<div class="field"><label for="email">Email</label><input id="email" placeholder="you@example.com" required="" type="email"/></div>
+<div class="field">
+<label for="category">Interested In</label>
+<select id="category" required="">
+<option value="">Select category</option>
+<option>Smartphone</option><option>Laptop</option><option>Smart TV</option>
+<option>Home Appliance</option><option>Audio</option><option>Camera</option><option>Other</option>
+</select>
+</div>
+</div>
+<div class="field"><label for="message">Requirement</label><textarea id="message" placeholder="Tell us your budget, brand or product requirement..." required=""></textarea></div>
+<button class="submit-btn" type="submit"><i class="fab fa-whatsapp"></i> Send Enquiry on WhatsApp</button>
+<div aria-live="polite" class="form-status" id="formStatus"></div>
+</form>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="logo" style="color:#fff;margin-bottom:12px"><span class="logo-mark"><i class="fas fa-bag-shopping"></i></span>Ecom<span>Planet</span></div>
+<p>Premium electronics, smart appliances and exclusive deals with fast WhatsApp support.</p>
+</div>
+<div><h4>Quick Links</h4><a href="#home">Home</a><a href="#products">Products</a><a href="#reviews">Reviews</a></div>
+<div><h4>Categories</h4><a href="#categories">Smartphones</a><a href="#categories">Laptops</a><a href="#categories">Smart TVs</a></div>
+<div><h4>Support</h4><a href="#contact">Contact Us</a><a href="https://wa.me/918375907897?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">WhatsApp</a><a href="#">Privacy Policy</a></div>
+</div>
+<div class="copyright">© 2026 EcomPlanet. All rights reserved.</div>
+</div>
+</footer>
+<a aria-label="Chat on WhatsApp" class="float-wa" href="https://wa.me/918375907897?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
 <script>
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
@@ -2165,126 +2315,6 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
   });
 
   window.addEventListener('resize',()=>{ if(innerWidth>820) closeMenu(); });
-
-
-
-  const productCards = Array.from(
-    document.querySelectorAll('.product-card[data-cat]')
-  );
-  const productFilterButtons = document.querySelectorAll(
-    '.product-filter-btn'
-  );
-  const categoryCards = document.querySelectorAll(
-    '.category-card[data-category]'
-  );
-  const productCategorySelector = document.getElementById(
-    'productCategorySelector'
-  );
-  const productCount = document.getElementById('productCount');
-
-  function filterProducts(category = 'all') {
-    let visibleCount = 0;
-
-    productCards.forEach(card => {
-      const isVisible =
-        category === 'all' || card.dataset.cat === category;
-
-      if (isVisible) {
-        card.classList.remove('product-hidden');
-        card.style.display = 'flex';
-      } else {
-        card.classList.add('product-hidden');
-        card.style.display = 'none';
-      }
-
-      if (isVisible) {
-        visibleCount += 1;
-      }
-    });
-
-    productFilterButtons.forEach(button => {
-      button.classList.toggle(
-        'active',
-        button.dataset.filter === category
-      );
-    });
-
-    if (productCategorySelector) {
-      productCategorySelector.value = category;
-    }
-
-    productCount.textContent =
-      `${visibleCount} product${visibleCount === 1 ? '' : 's'} found`;
-  }
-
-  productFilterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterProducts(button.dataset.filter);
-    });
-  });
-
-  if (productCategorySelector) {
-    productCategorySelector.addEventListener('change', () => {
-      filterProducts(productCategorySelector.value);
-    });
-  }
-
-  categoryCards.forEach(card => {
-    card.addEventListener('click', event => {
-      event.preventDefault();
-
-      const selectedCategory = card.dataset.category;
-      filterProducts(selectedCategory);
-
-      document.getElementById('products').scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    });
-  });
-
-  document.querySelectorAll('.cart-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      const productName = button.dataset.product;
-      const message = encodeURIComponent(
-        `Hello EcomPlanet, I want to buy ${productName}`
-      );
-
-      window.open(
-        `https://wa.me/919326246761?text=${message}`,
-        '_blank',
-        'noopener,noreferrer'
-      );
-    });
-  });
-
-  filterProducts('all');
-
-  const modal = document.getElementById('videoModal');
-  const video = document.getElementById('reviewVideo');
-  const closeModal = document.getElementById('closeModal');
-
-  function openVideo(card){
-    video.src = card.dataset.video;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-    video.play().catch(()=>{});
-  }
-  function closeVideo(){
-    video.pause();
-    video.removeAttribute('src');
-    video.load();
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-  }
-
-  document.querySelectorAll('.review-card').forEach(card=>card.addEventListener('click',()=>openVideo(card)));
-  closeModal.addEventListener('click',closeVideo);
-  modal.addEventListener('click',e=>{ if(e.target===modal) closeVideo(); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeVideo(); });
-
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
 
@@ -2310,11 +2340,34 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
     status.style.color='#0a9f45';
 
     window.open(
-      'https://wa.me/919326246761?text=' + encodeURIComponent(text),
+      'https://wa.me/918375907897?text=' + encodeURIComponent(text),
       '_blank',
       'noopener,noreferrer'
     );
   });
+</script>
+<script>
+
+const whatsappNumbers=['919326246761','918375907897'];
+document.querySelectorAll('.cart-btn').forEach((button,index)=>{
+  button.onclick=(e)=>{
+    e.preventDefault();
+    const card=button.closest('.product-card');
+    const name=button.dataset.product||card.querySelector('h4').innerText.trim();
+    const price=(card.querySelector('.new-price')?.innerText||'').trim();
+    const number=whatsappNumbers[index%2];
+    const msg=`Hello EcomPlanet,
+
+I am interested in this product.
+
+Product: ${name}
+Price: ${price}
+
+Please share availability.`;
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`,'_blank');
+  };
+});
+
 </script>
 </body>
 </html>
