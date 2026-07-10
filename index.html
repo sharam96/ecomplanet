@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="e6630192-3c2b-4af3-a4a0-2985f6d853f7.png">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>EcomPlanet - Smart Deals Store</title>
@@ -2330,5 +2331,53 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
     );
   });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const originalButtons = document.querySelectorAll(".cart-btn");
+  const totalButtons = originalButtons.length;
+  const halfPoint = Math.ceil(totalButtons / 2);
+
+  originalButtons.forEach(function (oldButton, index) {
+    // Clone button so any old/broken click handlers are removed.
+    const button = oldButton.cloneNode(true);
+    oldButton.replaceWith(button);
+
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const productCard = button.closest(".product-card");
+      const productName =
+        button.getAttribute("data-product") ||
+        productCard?.querySelector("h4")?.textContent.trim() ||
+        "Selected Product";
+
+      const productPrice =
+        productCard?.querySelector(".new-price")?.textContent.trim() ||
+        "Please confirm the price";
+
+      // First half: 8375907897 | Second half: 9326246761
+      const whatsappNumber =
+        index < halfPoint ? "918375907897" : "919326246761";
+
+      const message =
+`Hello EcomPlanet,
+
+I am interested in this product:
+
+Product: ${productName}
+Price: ${productPrice}
+
+Please share availability and delivery details.`;
+
+      const whatsappUrl =
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    });
+  });
+});
+</script>
+
 </body>
 </html>
