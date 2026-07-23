@@ -1731,11 +1731,11 @@ flex-direction:column!important;
 <a href="#products">Products</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
-<a class="header-wa mobile-wa" href="https://wa.me/919326246761?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">
+<a class="header-wa mobile-wa" href="https://chat.whatsapp.com/HqZCAObCE9MALYQHnrGyk3" rel="noopener noreferrer" target="_blank">
 <i class="fab fa-whatsapp"></i> Chat on WhatsApp
       </a>
 </nav>
-<a class="header-wa" href="https://wa.me/919326246761?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">
+<a class="header-wa" href="https://chat.whatsapp.com/HqZCAObCE9MALYQHnrGyk3" rel="noopener noreferrer" target="_blank">
 <i class="fab fa-whatsapp"></i> Chat on WhatsApp
     </a>
 <button aria-expanded="false" aria-label="Open menu" class="hamburger" id="hamburger">
@@ -1782,7 +1782,7 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
 </div>
 <div class="hero-actions">
 <a class="btn btn-blue" href="#products"><i class="fas fa-bag-shopping"></i> SHOP NOW</a>
-<a class="btn btn-green" href="https://chat.whatsapp.com/KNEl9wVJ2FSFyCAkwP7X7q" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i> JOIN WHATSAPP</a>
+<a class="btn btn-green" href="https://chat.whatsapp.com/HqZCAObCE9MALYQHnrGyk3" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i> JOIN WHATSAPP</a>
 </div>
 </div>
 <div class="hero-visual">
@@ -2165,7 +2165,7 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
 <span><i class="fas fa-ticket"></i> Special Coupons</span>
 </div>
 </div>
-<a class="btn" href="https://chat.whatsapp.com/KNEl9wVJ2FSFyCAkwP7X7q" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i> JOIN NOW</a>
+<a class="btn" href="https://chat.whatsapp.com/HqZCAObCE9MALYQHnrGyk3" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i> JOIN NOW</a>
 </section>
 <section class="panel reviews" id="reviews">
 <h2 class="section-title">CUSTOMER REVIEWS</h2>
@@ -2267,12 +2267,12 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
 </div>
 <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#products">Products</a><a href="#reviews">Reviews</a></div>
 <div><h4>Categories</h4><a href="#categories">Smartphones</a><a href="#categories">Laptops</a><a href="#categories">Smart TVs</a></div>
-<div><h4>Support</h4><a href="#contact">Contact Us</a><a href="https://wa.me/919326246761?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">WhatsApp</a><a href="#">Privacy Policy</a></div>
+<div><h4>Support</h4><a href="#contact">Contact Us</a><a href="https://chat.whatsapp.com/HqZCAObCE9MALYQHnrGyk3" rel="noopener noreferrer" target="_blank">WhatsApp</a><a href="#">Privacy Policy</a></div>
 </div>
 <div class="copyright">© 2026 EcomPlanet. All rights reserved.</div>
 </div>
 </footer>
-<a aria-label="Chat on WhatsApp" class="float-wa" href="https://wa.me/919326246761?text=Hello%20EcomPlanet" rel="noopener noreferrer" target="_blank">
+<a aria-label="Chat on WhatsApp" class="float-wa" href="https://chat.whatsapp.com/HqZCAObCE9MALYQHnrGyk3" rel="noopener noreferrer" target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
 <script>
@@ -2325,7 +2325,7 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
     status.style.color='#0a9f45';
 
     window.open(
-      'https://wa.me/919326246761?text=' + encodeURIComponent(text),
+      'https://wa.me/918368464517?text=' + encodeURIComponent(text),
       '_blank',
       'noopener,noreferrer'
     );
@@ -2334,46 +2334,15 @@ box-shadow:0 10px 20px rgba(33,201,91,.15);">
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const originalButtons = document.querySelectorAll(".cart-btn");
-  const totalButtons = originalButtons.length;
-  const halfPoint = Math.ceil(totalButtons / 2);
+  const communityLink = "https://chat.whatsapp.com/HqZCAObCE9MALYQHnrGyk3";
 
-  originalButtons.forEach(function (oldButton, index) {
-    // Clone button so any old/broken click handlers are removed.
+  document.querySelectorAll(".cart-btn").forEach(function (oldButton) {
     const button = oldButton.cloneNode(true);
     oldButton.replaceWith(button);
 
     button.addEventListener("click", function (event) {
       event.preventDefault();
-
-      const productCard = button.closest(".product-card");
-      const productName =
-        button.getAttribute("data-product") ||
-        productCard?.querySelector("h4")?.textContent.trim() ||
-        "Selected Product";
-
-      const productPrice =
-        productCard?.querySelector(".new-price")?.textContent.trim() ||
-        "Please confirm the price";
-
-      // First half: 8375907897 | Second half: 9326246761
-      const whatsappNumber =
-        index < halfPoint ? "918375907897" : "919326246761";
-
-      const message =
-`Hello EcomPlanet,
-
-I am interested in this product:
-
-Product: ${productName}
-Price: ${productPrice}
-
-Please share availability and delivery details.`;
-
-      const whatsappUrl =
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      window.open(communityLink, "_blank", "noopener,noreferrer");
     });
   });
 });
